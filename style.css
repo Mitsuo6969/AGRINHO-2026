@@ -1,0 +1,341 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+:root {
+    --cor-principal: #1b5e20;
+    --cor-secundaria: #4caf50;
+    --cor-fundo-claro: #e8f5e9;
+    --cor-destaque: #e65100;
+    --cor-fundo: #f4f7f5;
+    --cor-texto: #263238;
+    --cor-card: #ffffff;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. ANIMAÇÕES AVANÇADAS
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(76, 175, 80, 0.3); }
+    50% { box-shadow: 0 0 25px rgba(76, 175, 80, 0.6); }
+    100% { box-shadow: 0 0 10px rgba(76, 175, 80, 0.3); }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--cor-destaque); }
+}
+
+@keyframes underlineGrow {
+    from { width: 0; }
+    to { width: 70px; }
+}
+
+/* ==========================================================================
+   3. HEADER & NAV
+   ========================================================================== */
+header {
+    background: linear-gradient(135deg, var(--cor-principal), #0b3c11);
+    color: white;
+    padding: 4rem 1rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: glow 8s infinite ease-in-out;
+}
+
+header h1 {
+    font-size: 3rem;
+    animation: fadeInUp 1s ease forwards;
+}
+
+nav {
+    background-color: rgba(255, 255, 255, 0.12);
+    margin: 25px auto 0;
+    padding: 12px;
+    border-radius: 12px;
+    display: inline-block;
+    backdrop-filter: blur(8px);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #e8f5e9;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.4s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -4px;
+    left: 50%;
+    background-color: var(--cor-destaque);
+    transition: all 0.4s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+nav a:hover {
+    background-color: var(--cor-destaque);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. BANNER E SEÇÕES
+   ========================================================================== */
+.banner {
+    background-color: var(--cor-card);
+    padding: 50px 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.banner h1 {
+    color: var(--cor-principal);
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+}
+
+.banner h1 span {
+    color: var(--cor-destaque);
+}
+
+.typing {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--cor-destaque);
+    width: 0;
+    animation: typing 3.5s steps(40, end) forwards,
+               blink-caret 0.75s step-end infinite;
+    display: inline-block;
+}
+
+.titulo-secao {
+    color: var(--cor-principal);
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+}
+
+.titulo-secao::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 5px;
+    background-color: var(--cor-destaque);
+    border-radius: 3px;
+    animation: underlineGrow 1.2s ease forwards;
+}
+
+/* ==========================================================================
+   5. CARDS
+   ========================================================================== */
+.container-cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: var(--cor-card);
+    border-radius: 12px;
+    padding: 28px;
+    flex: 1;
+    min-width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    border-top: 6px solid var(--cor-secundaria);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.03) rotate(1deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    animation: glow 2s infinite;
+}
+
+.card h3 {
+    color: var(--cor-principal);
+    margin-bottom: 14px;
+}
+
+/* ==========================================================================
+   6. FORMULÁRIO
+   ========================================================================== */
+.secao-formulario {
+    background-color: var(--cor-card);
+    padding: 45px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+}
+
+.grupo-campo {
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--cor-texto);
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #cfd8dc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+}
+
+form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+form button {
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+form button:hover {
+    background-color: #0f3d14;
+    transform: scale(1.03);
+}
+
+form button:active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+footer {
+    background-color: #1a237e;
+    color: #e8eaf6;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin-top: 80px;
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.3rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .container-cards {
+        flex-direction: column;
+    }
+    
+    .banner h1 {
+        font-size: 1.9rem;
+    }
+    
+    .secao-formulario {
+        padding: 30px 20px;
+    }
+}
