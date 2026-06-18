@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Nome | Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Seu Nome</h1>
+        <p class="typing">Desenvolvedor Web • Designer • Criador de Experiências Digitais</p>
+        
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner / Sobre -->
+        <section id="sobre" class="banner">
+            <h1>Olá, eu sou <span>Seu Nome</span> 👋</h1>
+            <p>Apaixonado por criar soluções digitais bonitas, funcionais e com excelente experiência do usuário.</p>
+        </section>
+
+        <!-- Serviços -->
+        <section id="servicos">
+            <h2 class="titulo-secao">O que eu faço</h2>
+            <div class="container-cards">
+                <div class="card">
+                    <h3>🌐 Desenvolvimento Web</h3>
+                    <p>Sites modernos, rápidos e totalmente responsivos com HTML, CSS e JavaScript.</p>
+                </div>
+                <div class="card">
+                    <h3>🎨 UI/UX Design</h3>
+                    <p>Interfaces intuitivas, modernas e pensadas para converter.</p>
+                </div>
+                <div class="card">
+                    <h3>📱 Mobile First</h3>
+                    <p>Experiências otimizadas para celular e Progressive Web Apps.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projetos (vazio por enquanto - você pode adicionar depois) -->
+        <section id="projetos">
+            <h2 class="titulo-secao">Projetos em Destaque</h2>
+            <div class="container-cards">
+                <!-- Adicione cards de projetos aqui -->
+                <div class="card">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição breve do projeto. Tecnologias usadas: React, Tailwind, etc.</p>
+                </div>
+                <div class="card">
+                    <h3>Projeto 2</h3>
+                    <p>Descrição breve do projeto.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section class="secao-formulario" id="contato">
+            <h2 class="titulo-secao">Vamos trabalhar juntos?</h2>
+            <form action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+                <div class="grupo-campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="grupo-campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+                </div>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Yan Mitsuo A. Shime. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
