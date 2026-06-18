@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Nome | Portfólio</title>
+    <style>
+        /* === Seu CSS (melhorado e organizado) === */
+        :root {
+            --cor-principal: #1b5e20;
+            --cor-secundaria: #4caf50;
+            --cor-fundo-claro: #e8f5e9;
+            --cor-destaque: #e65100;
+            --cor-fundo: #f4f7f5;
+            --cor-texto: #263238;
+            --cor-card: #ffffff;
+            --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--fonte-principal);
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--cor-principal), #0b3c11);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: rgba(255, 255, 255, 0.12);
+            margin: 20px auto 0;
+            padding: 12px;
+            border-radius: 12px;
+            display: inline-block;
+            backdrop-filter: blur(8px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #e8f5e9;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: var(--cor-destaque);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1140px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .banner {
+            background-color: var(--cor-card);
+            padding: 50px 30px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .banner h1 {
+            color: var(--cor-principal);
+            font-size: 2.4rem;
+            margin-bottom: 16px;
+        }
+
+        .banner h1 span {
+            color: var(--cor-destaque);
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #455a64;
+        }
+
+        section {
+            margin-bottom: 70px;
+        }
+
+        .titulo-secao {
+            color: var(--cor-principal);
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 12px;
+            margin-bottom: 30px;
+        }
+
+        .titulo-secao::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 70px;
+            height: 5px;
+            background-color: var(--cor-destaque);
+            border-radius: 3px;
+        }
+
+        .container-cards {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: var(--cor-card);
+            border-radius: 12px;
+            padding: 28px;
+            flex: 1;
+            min-width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            border-top: 6px solid var(--cor-secundaria);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: var(--cor-principal);
+            margin-bottom: 14px;
+        }
+
+        .secao-formulario {
+            background-color: var(--cor-card);
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+        }
+
+        form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #cfd8dc;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: var(--cor-secundaria);
+            outline: none;
+        }
+
+        form button {
+            background-color: var(--cor-principal);
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background-color: #0f3d14;
+            transform: scale(1.03);
+        }
+
+        footer {
+            background-color: #1a237e;
+            color: #e8eaf6;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.1rem; }
+            .banner h1 { font-size: 1.9rem; }
+            nav ul { flex-direction: column; }
+            .container-cards { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Seu Nome</h1>
+        <p>Desenvolvedor | Designer | Criador de Experiências</p>
+        
+        <nav>
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Banner -->
+        <section class="banner" id="sobre">
+            <h1>Olá, eu sou <span>Seu Nome</span></h1>
+            <p>Apaixonado por criar soluções digitais com foco em experiência do usuário, design moderno e performance.</p>
+        </section>
+
+        <!-- Serviços / Habilidades -->
+        <section id="servicos">
+            <h2 class="titulo-secao">O que eu faço</h2>
+            <div class="container-cards">
+                <div class="card">
+                    <h3>🌱 Desenvolvimento Web</h3>
+                    <p>Sites modernos, rápidos e responsivos com HTML, CSS, JavaScript e frameworks.</p>
+                </div>
+                <div class="card">
+                    <h3>🎨 UI/UX Design</h3>
+                    <p>Interfaces bonitas, intuitivas e pensadas para converter.</p>
+                </div>
+                <div class="card">
+                    <h3>📱 Aplicações Mobile</h3>
+                    <p>Experiências mobile-first e Progressive Web Apps.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section class="secao-formulario" id="contato">
+            <h2 class="titulo-secao">Vamos conversar?</h2>
+            <form action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+                <div class="grupo-campo">
+                    <label>Nome</label>
+                    <input type="text" name="nome" required>
+                </div>
+                <div class="grupo-campo">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="grupo-campo">
+                    <label>Mensagem</label>
+                    <textarea name="mensagem" required></textarea>
+                </div>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Seu Nome. Todos os direitos reservados.</p>
+        <p>Feito com ❤️ e muito café</p>
+    </footer>
+
+</body>
+</html>
