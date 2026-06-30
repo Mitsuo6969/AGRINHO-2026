@@ -1,59 +1,42 @@
-// Smooth scrolling for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-            targetElement.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+document.addEventListener('DOMContentLoaded', () => {
+
+    // 1. Menu Responsivo (Hambúrguer)
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
-});
 
-// Image Modal
-function showModal(img) {
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-    
-    modal.style.display = "block";
-    modalImg.src = img.src;
-    
-    // Close on click outside image
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
+    // Fecha o menu ao clicar em qualquer link (útil para mobile)
+    const links = navLinks.querySelectorAll('a');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
     });
-}
 
-function closeModal() {
-    const modal = document.getElementById('imageModal');
-    modal.style.display = "none";
-}
+    // 2. Validação e Feedback do Formulário de Contato
+    const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('formSuccess');
 
-// Keyboard escape support
-document.addEventListener('keydown', function(e) {
-    if (e.key === "Escape") {
-        closeModal();
-    }
-});
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault(); // Impede o recarregamento da página
 
-// Add some simple animation on load
-window.addEventListener('load', () => {
-    console.log('Site Agrinho carregado com sucesso! 🌱');
-    
-    // Optional: Add subtle fade-in to cards
-    const cards = document.querySelectorAll('.card');
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            card.style.transition = 'all 0.6s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, 100 + index * 100);
+        // Captura de dados (Pode ser integrado com API de e-mail no futuro)
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        if(name && email && message) {
+            // Exibe mensagem de sucesso visualmente bonita
+            successMessage.style.display = 'block';
+            contactForm.reset(); // Limpa os campos
+
+            // Esconde a mensagem após 5 segundos
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+        }
     });
 });
